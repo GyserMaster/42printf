@@ -13,17 +13,9 @@
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
-# define FT_INT_MIN -2147483648
-# define FT_INT_MAX 2147483647
-
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <fcntl.h>
-# include <string.h>
-# include <ctype.h>
 # include "libft.h"
-
-//printf
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 int		ft_printf(char const *, ...);
+
 #endif
