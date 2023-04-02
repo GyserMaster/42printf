@@ -10,18 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 #include <stdarg.h>
 #include	"ft_putchar_fd.c"
 #include	"ft_putstr_fd.c"
-#include	"ft_putnbr_fd.c"
-#include	"ft_putdouble_fd.c"
-
-int	ft_check_wildcard(char c, char *buffer)
-{
-	ft_putstr_fd(buffer, 1);
-	return (0);
-}
+#include	"ft_itoa.c"
+#include	"ft_putpointer.c"
+#include	"ft_putx.c"
 
 int	ft_printf(char const *str, ...)
 {
@@ -32,56 +27,40 @@ int	ft_printf(char const *str, ...)
 	while (*str)
 	{
 		if (*str != '%')
-		{
 			ft_putchar_fd(*str, 1);
-		}
 		else
 		{
 			if (str[1] == '%')
-			{
-				ft_putchar_fd('%', 1);
-			}
-			else if (str[1] == 's')
-			{
-				ft_putstr_fd(va_arg(valist, char*), 1);
-			}
-			else if (str[1] == 'd')
-			{
-				ft_putnbr_fd(va_arg(valist, int), 1);
-			}
+				i += ft_putchar_fd('%', 1);
 			else if (str[1] == 'c')
-			{
-				ft_putchar_fd(va_arg(valist, int), 1);
-			}
-			else if (str[1] == 'f')
-			{
-				//ft_putdouble_fd(va_arg(valist, double), 1);
-			}
-			else
-			{
-				//ft_putstr_fd(va_arg(valist, char*), 1);
-				ft_putstr_fd("va_arg", 1);
-				
-			}
+				i += ft_putchar_fd(va_arg(valist, int), 1);
+			else if (str[1] == 's')
+				i += ft_putstr_fd(va_arg(valist, char*), 1);
+			else if (str[1] == 'd' || str[1] == 'i')
+				i += ft_itoa(va_arg(valist, int));
+			else if (str[1] == 'p') // HEXA
+				i += ft_putpointer(va_arg(valist, unsigned long));
+			else if (str[1] == 'x' || str[1] == 'X')
+				i += ft_putx(va_arg(valist, char*));
 			str++;
 		}
 		str++;
 	}
 	va_end(valist);
 	ft_putstr_fd((char*)str, 1);
-	return (0);
+	return (i);
 }
 
 int	main(void)
 {
-	char	*dashb = "Name: %s\nAge: %d\nSex: %c\nScore: %f";
 	char	*name = "spetrov";
 	int		age = 29;
 	char	sex = 'M';
-	double	score = 93.1;
+	int		year = 93;
+	char	*hexa = "HEXADECIMAL";
 
 	
-	ft_printf("Name: %s\nAge: %d\nSex: %c\nScore: %f", name, age, sex, score);
-	printf("\n>> Hey! Main ft_printf.c");
+	ft_printf("Name: %s\nAge: %d\nSex: %c\nScore: %i\nHexa: %p", name, age, sex, year, hexa);
+	printf("\nName: %s\nAge: %d\nSex: %c\nScore: %i\nHexa: %p", name, age, sex, year, hexa);
 	return (0);
 }

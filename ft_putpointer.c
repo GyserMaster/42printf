@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdouble_fd.c                                  :+:      :+:    :+:   */
+/*   ft_putpointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 20:12:30 by spetrov           #+#    #+#             */
-/*   Updated: 2023/03/06 20:12:30 by spetrov          ###   ########.fr       */
+/*   Created: 2023/04/02 21:43:52 by spetrov           #+#    #+#             */
+/*   Updated: 2023/04/02 22:35:14 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putdouble_fd(double n)
+#include "libftprintf.h"
+int	ft_nbr_to_hexa(unsigned long dir)
 {
-	if (n == (double)0)
+	int i;
+
+	i = 0;
+	while (dir > 0)
 	{
-		return ;
+		i += ft_putchar_fd("0123456789abcdef"[dir % 16], 1);
+		dir = dir / 16;
 	}
-	
-	if (n != 0)
+	return (i);
+}
+
+int	ft_putpointer(unsigned long dir)
+{
+	int i;
+
+	i = 0;
+	if (!(dir))
 	{
-		ft_putdouble_fd(n / 10);
-		ft_putnbr_fd((int)n % 10, 1);
+		i += ft_putstr_fd("0x0" ,1);
 	}
+	else
+	{
+		i += ft_putstr_fd("0x" ,1);
+		i += ft_nbr_to_hexa(dir);
+	}
+	return (i);
 }
