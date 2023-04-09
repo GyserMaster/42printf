@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,13 +23,12 @@
 # include <string.h>
 # include <ctype.h>
 
-int		ft_itoa(int n);
-int		ft_putchar_fd(char c, int fd);
-int		ft_putstr_fd(char *s, int fd);
-int		ft_putpointer(unsigned long dir);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
-int		ft_putx(char *s);
-int		ft_printf(char const *, ...);
-
+int	ft_itoa(int n);
+int	ft_putchar_fd(char c, int fd);
+int	ft_putstr_fd(char *s, int fd);
+int	ft_putpointer(unsigned long dir);
+int	ft_putx(unsigned int dir, char c);
+int	ft_printf(char const *, ...);
+int	ft_putdi(int n);
+int	ft_putul(unsigned long long n);
 #endif

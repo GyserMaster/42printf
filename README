@@ -1,0 +1,7 @@
+ERRORS LIST
+
+For p format:
+Error in test 1: ft_printf("%p", ""): returned: 3, but expected: 11
+Error in test 3: ft_printf("%p", (void *)-14523): returned: 3, but expected: 18
+Error in test 4: ft_printf("0x%p-", (void *)ULONG_MAX): returned: 6, but expected: 21
+Error in test 5: ft_printf("%pp%p%p", (void *)LONG_MAX + 423856, (void *)0, (void *)INT_MAX): returned: 10, but expected: 32

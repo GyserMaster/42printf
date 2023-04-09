@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpointer.c                                    :+:      :+:    :+:   */
+/*   ft_putdi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/02 21:43:52 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/09 21:26:46 by spetrov          ###   ########.fr       */
+/*   Created: 2023/04/09 21:42:38 by spetrov           #+#    #+#             */
+/*   Updated: 2023/04/09 22:22:06 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-int	ft_nbr_to_hexa(unsigned long dir)
+static int ft_direcur(int n)
 {
 	int	i;
 
 	i = 0;
-	if (dir > 0)
+	if (n)
 	{
-		i += ft_nbr_to_hexa(dir / 16);
-		i += ft_putchar_fd("0123456789abcdef"[dir % 16], 1);
+		i += ft_direcur(n / 10);
+		i += ft_putchar_fd((n % 10) + '0', 1);
 	}
 	return (i);
 }
 
-int	ft_putpointer(unsigned long dir)
+int	ft_putdi(int n)
 {
 	int	i;
 
 	i = 0;
-	if (!(dir))
-		i += ft_putstr_fd("0x0", 1);
-	else
+	if (n == -2147483648)
+		return (ft_putstr_fd("-2147483648", 1));
+	if (n == 0)
+		return (ft_putstr_fd("0", 1));
+	if (n < 0)
 	{
-		i += ft_putstr_fd("0x", 1);
-		i += ft_nbr_to_hexa(dir);
+		n = n * (-1);
+		i += ft_putstr_fd("-", 1);
 	}
+	i += ft_direcur(n);
 	return (i);
 }

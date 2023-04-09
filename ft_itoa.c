@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include	"ft_printf.h"
 
 static int	ft_count_dig(long int n)
 {
@@ -66,5 +66,7 @@ int	ft_itoa(int n)
 	if (m < 0)
 		m = m * (-1);
 	ft_n_in_str(buffer, digits, m);
-	return (ft_putstr_fd(buffer, 1));
+	m = ft_putstr_fd(buffer, 1);
+	free(buffer);
+	return (m);
 }

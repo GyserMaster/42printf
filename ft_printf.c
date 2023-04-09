@@ -10,57 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdarg.h>
+#include	"ft_printf.h"
+#include	<stdarg.h>
 #include	"ft_putchar_fd.c"
 #include	"ft_putstr_fd.c"
 #include	"ft_itoa.c"
 #include	"ft_putpointer.c"
 #include	"ft_putx.c"
+#include	"ft_putdi.c"
+#include	"ft_putul.c"
+
+int	check_wildcard(char wdc, va_list valist)
+{
+	int	i;
+
+	i = 0;
+	if (wdc == '%')
+		i += ft_putchar_fd('%', 1);
+	else if (wdc == 'c')
+		i += ft_putchar_fd(va_arg(valist, int), 1);
+	else if (wdc == 's')
+		i += ft_putstr_fd(va_arg(valist, char *), 1);
+	else if (wdc == 'd' || wdc == 'i')
+		i += ft_putdi(va_arg(valist, int));
+	else if (wdc == 'u')
+		i += ft_putul(va_arg(valist, unsigned long long));
+	else if (wdc == 'p')
+		i += ft_putpointer(va_arg(valist, unsigned long));
+	else if (wdc == 'x' || wdc == 'X')
+		i += ft_putx(va_arg(valist, unsigned int), wdc);
+	return (i);
+}
 
 int	ft_printf(char const *str, ...)
 {
-	va_list valist;
-	int i;
+	va_list	valist;
+	int		i;
 
-	va_start(valist, 0);
+	i = 0;
+	va_start(valist, str);
 	while (*str)
 	{
 		if (*str != '%')
-			ft_putchar_fd(*str, 1);
+			i += ft_putchar_fd(*str, 1);
 		else
 		{
-			if (str[1] == '%')
-				i += ft_putchar_fd('%', 1);
-			else if (str[1] == 'c')
-				i += ft_putchar_fd(va_arg(valist, int), 1);
-			else if (str[1] == 's')
-				i += ft_putstr_fd(va_arg(valist, char*), 1);
-			else if (str[1] == 'd' || str[1] == 'i')
-				i += ft_itoa(va_arg(valist, int));
-			else if (str[1] == 'p') // HEXA
-				i += ft_putpointer(va_arg(valist, unsigned long));
-			else if (str[1] == 'x' || str[1] == 'X')
-				i += ft_putx(va_arg(valist, char*));
+			i += check_wildcard(str[1], valist);
 			str++;
 		}
 		str++;
 	}
 	va_end(valist);
-	ft_putstr_fd((char*)str, 1);
+	ft_putstr_fd((char *)str, 1);
 	return (i);
 }
-
+/*
 int	main(void)
 {
-	char	*name = "spetrov";
+	char	*name = NULL;
 	int		age = 29;
 	char	sex = 'M';
 	int		year = 93;
 	char	*hexa = "HEXADECIMAL";
+	int		printoutput = 0;
 
-	
-	ft_printf("Name: %s\nAge: %d\nSex: %c\nScore: %i\nHexa: %p", name, age, sex, year, hexa);
-	printf("\nName: %s\nAge: %d\nSex: %c\nScore: %i\nHexa: %p", name, age, sex, year, hexa);
+	printoutput = ft_printf("Name: %s\nAge: %d\nSex: %c\nScore: %i\nHexa: %p\nxXxX: %X", 
+	name, age, sex, year, hexa, -123);
+	printf("\nprintoutput = %d", printoutput);
+
+	printoutput = printf("\nName: %s \nAge: %d\nSex: %c\nScore: %i\nHexa: %p\nxXxX: %X", 
+	name, age, sex, year, hexa, -123);
+	printf("\nprintoutput = %d", printoutput);
+	printf("\nLONG_MAX = %u\nLONG_MIN = %u\nULONG_MAX = %u", __LONG_MAX__, -2147483648, 4294967295);
 	return (0);
-}
+}*/

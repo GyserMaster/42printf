@@ -10,10 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC	=	ft_putchar_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
+SRC	=	ft_itoa.c \
+		ft_putchar_fd.c \
 		ft_putstr_fd.c \
+		ft_putpointer.c \
+		ft_putx.c \
 		ft_printf.c \
 
 OBJ	= ${SRC:%.c=%.o}
@@ -27,7 +28,9 @@ RM		= rm -f
 
 $(NAME):	${OBJ}
 			${CC} ${FLAGS} -c ${SRC}
-			ar rc ${NAME} ${OBJ} libftprintf.h
+			ar rc ${NAME} ${OBJ} ft_printf.h
+
+all:		${NAME}
 
 clean:
 			${RM} ${OBJ}
@@ -35,6 +38,6 @@ clean:
 fclean:		clean
 			${RM} ${NAME}
 
-re:			fclean $(NAME)
+re:			fclean all
 
-.PHONY:		clean fclean re
+.PHONY:		all clean fclean re
