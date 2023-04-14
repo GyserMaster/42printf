@@ -14,7 +14,6 @@
 #include	<stdarg.h>
 #include	"ft_putchar_fd.c"
 #include	"ft_putstr_fd.c"
-#include	"ft_itoa.c"
 #include	"ft_putpointer.c"
 #include	"ft_putx.c"
 #include	"ft_putdi.c"
@@ -34,7 +33,7 @@ int	check_wildcard(char wdc, va_list valist)
 	else if (wdc == 'd' || wdc == 'i')
 		i += ft_putdi(va_arg(valist, int));
 	else if (wdc == 'u')
-		i += ft_putul(va_arg(valist, unsigned long long));
+		i += ft_putul(va_arg(valist, unsigned long long int));
 	else if (wdc == 'p')
 		i += ft_putpointer(va_arg(valist, unsigned long));
 	else if (wdc == 'x' || wdc == 'X')
@@ -81,6 +80,6 @@ int	main(void)
 	printoutput = printf("\nName: %s \nAge: %d\nSex: %c\nScore: %i\nHexa: %p\nxXxX: %X", 
 	name, age, sex, year, hexa, -123);
 	printf("\nprintoutput = %d", printoutput);
-	printf("\nLONG_MAX = %u\nLONG_MIN = %u\nULONG_MAX = %u", __LONG_MAX__, -2147483648, 4294967295);
+	printf("\nLONG_MAX = %ld\nLONG_MIN = %llu\nULONG_MAX = %llu", __LONG_MAX__, -9223372036854775808, 18446744073709551615);
 	return (0);
 }*/

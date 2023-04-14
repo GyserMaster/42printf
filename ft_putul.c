@@ -6,13 +6,13 @@
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 22:27:00 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/09 22:57:50 by spetrov          ###   ########.fr       */
+/*   Updated: 2023/04/14 13:48:53 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-static int ft_ulrecur(unsigned long long n)
+static int ft_ulrecur(unsigned long long int n)
 {
 	int	i;
 
@@ -25,23 +25,15 @@ static int ft_ulrecur(unsigned long long n)
 	return (i);
 }
 
-int	ft_putul(unsigned long long n)
+int	ft_putul(unsigned long long int n)
 {
 	int	i;
 
 	i = 0;
 	if (n == 0)
 		return (ft_putstr_fd("0", 1));	
-	if (n == __LONG_MAX__)
+	if (n == 9223372036854775807L)
 		return (ft_putstr_fd("4294967295", 1));
-	if (n == 2147483648)
-	{
-		return (ft_putstr_fd("2147483648", 1));
-	}
-	if (n == 4294967295)
-	{
-		return (ft_putstr_fd("4294967295", 1));
-	}
 	i += ft_ulrecur(n);
 	return (i);
 }

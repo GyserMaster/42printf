@@ -4,6 +4,7 @@
 		"libft.h": "c",
 		"sstream": "c",
 		"libftprintf.h": "c",
-		"ft_printf.h": "c"
+		"ft_printf.h": "c",
+		"float.h": "c"
 	}
 }

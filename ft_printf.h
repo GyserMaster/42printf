@@ -22,13 +22,14 @@
 # include <fcntl.h>
 # include <string.h>
 # include <ctype.h>
+#include <limits.h>
+#include <float.h>
 
-int	ft_itoa(int n);
 int	ft_putchar_fd(char c, int fd);
 int	ft_putstr_fd(char *s, int fd);
 int	ft_putpointer(unsigned long dir);
 int	ft_putx(unsigned int dir, char c);
 int	ft_printf(char const *, ...);
 int	ft_putdi(int n);
-int	ft_putul(unsigned long long n);
+int	ft_putul(unsigned long long int n);
 #endif

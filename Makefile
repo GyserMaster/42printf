@@ -10,11 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC	=	ft_itoa.c \
-		ft_putchar_fd.c \
+SRC	=	ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putpointer.c \
 		ft_putx.c \
+		ft_putdi.c \
+		ft_putul.c \
 		ft_printf.c \
 
 OBJ	= ${SRC:%.c=%.o}
