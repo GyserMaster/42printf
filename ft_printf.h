@@ -31,5 +31,5 @@ int	ft_putpointer(unsigned long dir);
 int	ft_putx(unsigned int dir, char c);
 int	ft_printf(char const *, ...);
 int	ft_putdi(int n);
-int	ft_putul(unsigned long long int n);
+int	ft_putul(unsigned int n);
 #endif

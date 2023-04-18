@@ -33,7 +33,7 @@ int	check_wildcard(char wdc, va_list valist)
 	else if (wdc == 'd' || wdc == 'i')
 		i += ft_putdi(va_arg(valist, int));
 	else if (wdc == 'u')
-		i += ft_putul(va_arg(valist, unsigned long long int));
+		i += ft_putul(va_arg(valist, unsigned int));
 	else if (wdc == 'p')
 		i += ft_putpointer(va_arg(valist, unsigned long));
 	else if (wdc == 'x' || wdc == 'X')
@@ -80,6 +80,8 @@ int	main(void)
 	printoutput = printf("\nName: %s \nAge: %d\nSex: %c\nScore: %i\nHexa: %p\nxXxX: %X", 
 	name, age, sex, year, hexa, -123);
 	printf("\nprintoutput = %d", printoutput);
-	printf("\nLONG_MAX = %ld\nLONG_MIN = %llu\nULONG_MAX = %llu", __LONG_MAX__, -9223372036854775808, 18446744073709551615);
+	printf("\n-----\n");
+	printf(" %u %u %u %u %u %u %u\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	ft_printf(" %u %u %u %u %u %u %u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
 	return (0);
 }*/
