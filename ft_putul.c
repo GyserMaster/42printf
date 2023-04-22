@@ -6,13 +6,13 @@
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 22:27:00 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/18 22:07:49 by spetrov          ###   ########.fr       */
+/*   Updated: 2023/04/22 18:20:59 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-static int ft_ulrecur(unsigned int n)
+static	int	ft_ulrecur(unsigned int n)
 {
 	int	i;
 

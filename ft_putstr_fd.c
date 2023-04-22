@@ -21,6 +21,6 @@ int	ft_putstr_fd(char *s, int fd)
 		i += ft_putstr_fd("(null)", fd);
 	else
 		while (*s)
-			i += ft_putchar_fd(*s++, fd);
+			i += ft_putchar_fd(*s++, 1);
 	return (i);
 }

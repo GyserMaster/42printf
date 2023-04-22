@@ -6,13 +6,13 @@
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 21:43:52 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/09 21:26:46 by spetrov          ###   ########.fr       */
+/*   Updated: 2023/04/22 19:47:09 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-int	ft_nbr_to_hexa(unsigned long dir)
+static int	ft_nbr_to_hexa(unsigned long dir)
 {
 	int	i;
 

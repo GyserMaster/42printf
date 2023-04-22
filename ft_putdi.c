@@ -6,13 +6,13 @@
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 21:42:38 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/09 22:22:06 by spetrov          ###   ########.fr       */
+/*   Updated: 2023/04/22 18:20:37 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-static int ft_direcur(int n)
+static int	ft_direcur(int n)
 {
 	int	i;
 

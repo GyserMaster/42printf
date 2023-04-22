@@ -6,15 +6,15 @@
 /*   By: spetrov <gyser.petrov.42@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 22:00:37 by spetrov           #+#    #+#             */
-/*   Updated: 2023/04/18 22:46:35 by spetrov          ###   ########.fr       */
+/*   Updated: 2023/04/22 18:21:15 by spetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-static int ft_putx_rec(unsigned int dir, char c)
+static int	ft_putx_rec(unsigned int dir, char c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (dir > 0 && c == 'x')

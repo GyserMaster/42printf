@@ -1,7 +1,5 @@
-ERRORS LIST
-
-	48:     TEST(24, print(" %u ", LONG_MAX));
-49:     TEST(25, print(" %u ", LONG_MIN));
-51:     TEST(27, print(" %u ", ULONG_MAX));
-	52:     TEST(28, print(" %u ", 9223372036854775807LL));
-53:     TEST(29, print(" %u %u %u %u %u %u %u", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42));
+-Imitar la función original "printf()" con los comodines %[%csdiupxX]
+No BONUS added.
+francinette OK
+francinette --strict KO
+	Printf should return -1 if it encounters errors.
